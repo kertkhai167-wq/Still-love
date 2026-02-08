@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cute Secret Video</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffd1dc, #ff9a9e);
+  font-family: Arial, sans-serif;
+}
+
+.box {
+  background: #fff;
+  padding: 30px;
+  width: 320px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  animation: pop 1s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+h2 {
+  color: #ff4d6d;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #555;
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  border-radius: 15px;
+  border: 2px solid #ffb3c1;
+  font-size: 16px;
+  outline: none;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 20px;
+  background: #ff4d6d;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff1f4b;
+}
+
+video {
+  display: none;
+  margin-top: 15px;
+  width: 100%;
+  border-radius: 15px;
+  animation: fade 1s ease;
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>💖 Surprise 💖</h2>
+  <p>Write something 👇</p>
+
+  <input type="text" id="text" placeholder="Type here...">
+  <br>
+
+  <button onclick="playVideo()">Open</button>
+
+  <video id="video" controls>
+    <source src="myvideo.mp4" type="video/mp4">
+    Your browser does not support video.
+  </video>
+</div>
+
+<script>
+function playVideo() {
+  const text = document.getElementById("text").value;
+  const video = document.getElementById("video");
+
+  if (text.trim() === "") {
+    alert("Please write something 🥺");
+    return;
+  }
+
+  video.style.display = "block";
+  video.play();
+}
+</script>
+
+</body>
+</html>
